@@ -115,8 +115,10 @@
         });
       }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
       revealTargets.forEach((el) => {
-        if (el.dataset.reveal === 'arch' && el.parentElement) {
-          const parent = el.parentElement;
+        // cards fora da tela num carrossel horizontal nunca cruzam a viewport: revela junto com o carrossel
+        const scroller = el.closest('.carousel');
+        if ((el.dataset.reveal === 'arch' && el.parentElement) || (scroller && scroller !== el)) {
+          const parent = scroller && scroller !== el ? scroller : el.parentElement;
           if (!proxies.has(parent)) proxies.set(parent, []);
           proxies.get(parent).push(el);
           io.observe(parent);
@@ -133,7 +135,7 @@
   const header = $('.site-header');
   const progress = $('.scroll-progress');
   const wa = $('.wa-float');
-  const heroEl = $('.hero, .m-hero');
+  const heroEl = $('.hero, .m-hero, .rd-hero');
   let lastY = window.scrollY;
   let ticking = false;
 
