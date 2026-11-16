@@ -706,11 +706,15 @@ p { margin: 0 0 1em; }
 .testi.is-in mark { background-size: 100% 100%; }
 .testi figcaption { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid rgba(184, 167, 188, .35); }
 .testi-avatar {
-  width: 44px; height: 44px; border-radius: 50%; flex: none; display: grid; place-items: center;
+  width: 52px; height: 52px; border-radius: 50%; flex: none; display: grid; place-items: center;
+  box-shadow: 0 0 0 2px var(--ivory-2), 0 0 0 3px var(--copper-soft);
   background: var(--plum); color: var(--ivory); font-family: var(--ff-title); font-size: 1.3rem; font-weight: 600;
   transition: transform .6s var(--ease-out);
 }
 .testi:hover .testi-avatar { transform: rotate(-10deg) scale(1.06); }
+img.testi-avatar { object-fit: cover; background: var(--lav-soft); }
+.testi:hover img.testi-avatar { transform: scale(1.08); }
+.testi.dark .testi-avatar { box-shadow: 0 0 0 2px var(--violet), 0 0 0 3px rgba(230, 166, 143, .6); }
 .testi figcaption strong { display: block; font-family: var(--ff-title); font-size: 1.25rem; font-weight: 600; color: var(--violet); line-height: 1.2; }
 .testi figcaption small { font-size: 12px; color: var(--muted); }
 
